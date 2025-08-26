@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Six Dev | Início</title>
+    <title>Six Dev | Fornecedor</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="">
 </head>
@@ -17,13 +17,13 @@
                 <a href="index.html">
                     <li>Início</li>
                 </a>
-                <a href="php/cadastro_cli.php">
+                <a href="cliente.html">
                     <li>Cliente</li>
                 </a>
-                <a href="php/cadastro_for.php">
+                <a href="fornecedor.html">
                     <li>Fornecedor</li>
                 </a>
-                <a href="php/estoque.php">
+                <a href="/estoque.php">
                     <li>Estoque</li>
                 </a>
             </ul>
@@ -37,13 +37,13 @@
                 <a href="index.html">
                     <li>Início</li>
                 </a>
-                <a href="php/cadastro_cli.php">
+                <a href="cliente.html">
                     <li>Cliente</li>
                 </a>
-                <a href="php/cadastro_for.php">
+                <a href="fornecedor.html">
                     <li>Fornecedor</li>
                 </a>
-                <a href="php/estoque.php">
+                <a href="/estoque.php">
                     <li>Estoque</li>
                 </a>
             </ul>
@@ -57,24 +57,30 @@
     <main>
         <!-- seção -->
         <section>
-            <div class="container-cards" onmouseout="voltar()">
-                <!-- card de cadastro dos clientes -->
-                <div class="card-cliente" id="cardCliente" onmousemove="cliente()">
-                    <a href="cliente.html"><button id="buttonCliente">Cadastro (Cliente)</button></a>
-                </div>
-                <!-- card de cadastro dos fornecedores -->
-                <div class="card-fornecedor" id="cardFornecedor" onmousemove="fornecedor()">
-                    <a href="fornecedor.html"><button>Cadastro (Fornecedor)</button></a>
-                </div>
-                <!-- card do estoque  -->
-                <div class="card-estoque" id="cardEstoque" onmousemove="estoque()">
-                    <a href="php/estoque.php"><button>Estoque</button></a>
-                </div>
+            <div class="container-formulario">
+                <form action="fornecedor.html" method="post">
+                    <h1>Cadastro de Fornecedor</h1>
+                    <p>* - obrigatório</p>
+                    <div class="formulario-bloco">
+                        <label for="nome">Nome do Fornecedor</label>
+                        <input type="text" name="nome" id="idnome" autofocus required>
+                    </div>
+                    <div class="formulario-bloco">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" name="telefone" id="idtelefone" required>
+                    </div>
+                    <div class="formulario-bloco">
+                        <label for="email">E-mail para contato</label>
+                        <input type="text" name="email" id="idemail" required>
+                    </div>
+                    <button type="submit">Salvar</button>
+                    <p>SixDev Technology <span>© 2025</span></p>
+                </form>
             </div>
         </section>
     </main>
     <footer>
-        <p>SixDev Technology <span>© 2025</span></p>
+        <p>SixDev Technology © 2025</p>
     </footer>
     <script src="script.js"></script>
 </body>

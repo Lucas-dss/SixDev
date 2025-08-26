@@ -35,8 +35,9 @@
 /* #endregion */
 
 body {
-    background-image: linear-gradient(#101820 92%, #ffe600);
+    background-color: #b6b6b6;
     min-width: 270px;
+    transition: background-color 0.5s ease-in-out;
 }
 
 /* #region cabeçalho */
@@ -76,15 +77,46 @@ header nav ul a {
 }
 
 header nav ul a li {
-    font-size: 20px;
+    font-size: 17px;
     text-align: center;
     color: #101820;
     list-style-type: none;
 }
 
+header nav ul::before,
+ul::after {
+    content: " |";
+    font-size: 20px;
+}
+
 header nav ul a li:hover {
     font-size: 21px;
-    text-decoration: underline #10182022;
+    text-decoration: underline #10182050;
+}
+
+header nav .modo {
+    padding: 3px;
+    background-color: #ffffff;
+    border: 3px solid #d4bc00;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+header nav .modo:hover {
+    background-color: #1018202f;
+    border: 3px solid #887a00;
+    transition: all 0.2s ease-in-out;
+}
+
+/* o dark mode */
+.dark-mode {
+    background-color: #101820;
+    color: white;
+}
+
+.dark-icon {
+    rotate: 360deg;
 }
 
 /* #region hamburguer (o símbolo de navegação que aparece só no mobile) */
@@ -237,8 +269,7 @@ header nav .x:active span {
 
 /* #region main (conteúdo principal) */
 main {
-    height: 660px;
-    min-height: 100dvh;
+    height: calc(100vh - 130px);
     margin-top: 90px;
     padding: 20px;
 }
@@ -386,6 +417,106 @@ main section .container-cards .card-estoque:hover a button:active {
     transition: all 1s ease-out;
 }
 
+/* #region cliente.html */
+main section .container-formulario {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main section .container-formulario form {
+    padding: 20px;
+    border-radius: 16px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff3b;
+}
+
+main section .container-formulario form h1 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+main section .container-formulario form .formulario-bloco {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: all 0.5 ease-in-out;
+}
+
+main section .container-formulario form .formulario-bloco label {
+    text-align: left;
+    position: relative;
+    top: 34px;
+    left: 10px;
+    color: #b6b6b6;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+main section .container-formulario form .formulario-bloco input {
+    padding: 5px 5px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    border-radius: 12px;
+    font-size: 16px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+main section .container-formulario form .formulario-bloco label::after {
+    content: ' *';
+    color: #ffe600;
+}
+
+main section .container-formulario form .formulario-bloco:hover label {
+    top: 0;
+    left: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: left;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+}
+
+main section .container-formulario button {
+    width: 100%;
+    background-color: #ffe600;
+    color: #000000;
+    border: none;
+    border-bottom: 3px solid #d4bc00;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 20px 0;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+main section .container-formulario button:hover {
+    background-color: #d4bc00;
+    transition: all 0.2s ease-in-out;
+}
+
+main section .container-formulario p:nth-child(2) {
+    width: 100%;
+    margin-left: 10px;
+    color: #ffe600;
+    font-size: 15px;
+}
+
+main section .container-formulario p span {
+    opacity: 50%;
+}
+
+/* #endregion */
+
 /* #endregion */
 
 /* #region rodapé */
@@ -394,7 +525,8 @@ footer {
     height: 20px;
     width: 100%;
     background-color: #ffe600;
-    color: #000000;
+    box-shadow: 0 0 20px 2px #ffe60075;
+    color: #101820;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -409,12 +541,16 @@ footer {
         width: 70%;
     }
 
+    header nav ul a li {
+        font-size: 16px;
+    }
+
     header nav .x {
         left: 92.8%;
     }
 
     main {
-        height: 1220px;
+        height: calc(100vh + 250px);
         margin-top: 80px;
         padding: 15px;
     }
@@ -431,33 +567,52 @@ footer {
         transition: 0s;
     }
 
+    main section .container-cards .card-fornecedor:hover {
+        transform: skew(0, 0);
+        border-bottom: 2px solid #ffe600;
+        transition: 0s;
+    }
+
     main section .container-cards .card-estoque:hover {
         transform: skew(0, 0);
-        border-right: 1px solid #ffe600;
-        border-bottom: 1px solid #ffe600;
+        border-right: 2px solid #ffe600;
+        border-bottom: 2px solid #ffe600;
         transition: 0s;
     }
 
     main section .container-cards .card-cliente:hover a button {
-        border-left: 1px solid #ffffff;
-        border-bottom: 2px solid #fff;
-        transition: 0s;
+        border: 0;
+        border-bottom: 8px solid #887a00;
+        transition: all 0.5s ease-in;
+    }
+
+    main section .container-cards .card-fornecedor:hover a button {
+        border: 0;
+        border-bottom: 8px solid #887a00;
+        transition: all 0.5s ease-in;
     }
 
     main section .container-cards .card-estoque:hover a button {
-        border-right: 1px solid #ffffff;
-        border-bottom: 2px solid #fff;
-        transition: 0s;
+        border: 0;
+        border-bottom: 8px solid #887a00;
+        transition: all 0.5s ease-in;
     }
 }
 
 @media screen and (max-width: 634px) {
     header nav {
-        width: 20%;
+        width: 40%;
+        align-items: center;
     }
 
     header nav ul {
         display: none;
+    }
+
+    header nav .modo {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
     }
 
     header nav .hamburguer {
@@ -465,11 +620,12 @@ footer {
     }
 
     header nav .x {
-        left: 83.8%;
+        left: 81.8%;
+        top: 2%;
     }
 
     main {
-        height: 1460px;
+        height: calc(100vh + 750px);
         margin-top: 40px;
         padding: 10px;
     }
@@ -477,6 +633,13 @@ footer {
     main section .container-cards {
         height: 1400px;
     }
-}
 
+    main section .container-formulario {
+        height: 600px;
+    }
+
+    main section .container-formulario form {
+        width: 50%;
+    }
+}
 /* #endregion */
