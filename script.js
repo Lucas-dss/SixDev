@@ -23,6 +23,7 @@ x.addEventListener("click", function () {
     main.style.filter = 'blur(0)';
 })
 
+// personalização da tela
 modo.addEventListener("click", function () {
     // altera a classe do body para "dark-mode"
     body.classList.toggle("dark-mode");

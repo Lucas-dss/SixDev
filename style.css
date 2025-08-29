@@ -34,6 +34,10 @@
 
 /* #endregion */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #b6b6b6;
     min-width: 270px;
@@ -225,7 +229,7 @@ header nav .x .xBarra1 {
 
 header nav .x .xBarra2 {
     rotate: 315deg;
-    animation: rodando 1.05s infinite;
+    animation: rodando 1s infinite reverse;
 }
 
 @keyframes piscando {
@@ -427,6 +431,7 @@ main section .container-formulario {
 }
 
 main section .container-formulario form {
+    margin: 0 auto;
     padding: 20px;
     border-radius: 16px;
     width: 400px;
@@ -450,12 +455,13 @@ main section .container-formulario form .formulario-bloco {
 
 main section .container-formulario form .formulario-bloco label {
     text-align: left;
+    font-weight: bold;
     position: relative;
     top: 34px;
     left: 10px;
     color: #b6b6b6;
-    opacity: 0;
     transition: all 0.5s ease-in-out;
+    opacity: 0;
 }
 
 main section .container-formulario form .formulario-bloco input {
@@ -642,4 +648,5 @@ footer {
         width: 75%;
     }
 }
+
 /* #endregion */
