@@ -4,11 +4,62 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* #region cursor do mouse */
+html,
+body {
+    cursor: none;
+}
+
+.custom-cursor {
+    /* faz ele acompanhar o cursor, mesmo descendo a página */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    /* coloca o cursor acima dos outros elementos */
+    z-index: 3;
+    /* Impede que o cursor interfira com os eventos do mouse */
+    pointer-events: none;
+}
+
+.site-wide {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    /* Define a fórmula que deve ser usada para misturar as cores com o cenário
+    (efeito de inversão de cor) */
+    mix-blend-mode: difference;
+}
+
+.site-wide .pointer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out;
+    /* Define a fórmula que deve ser usada para misturar as cores com o cenário
+    (efeito de inversão de cor) */
+    mix-blend-mode: difference;
+}
+
+.site-wide.active .pointer {
+    width: 20px;
+    height: 20px;
+}
+
+/* #endregion */
+
 /* #region barra de scroll */
 
 ::-webkit-scrollbar {
     background-color: #101820;
     width: 3px;
+    height: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -44,6 +95,56 @@ body {
     transition: background-color 0.5s ease-in-out;
 }
 
+/* #region ondas do background */
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
+
+/* #endregion */
 /* #region cabeçalho */
 header {
     padding: 10px 10px 10px 0px;
@@ -58,26 +159,26 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
 }
 
 header nav {
-    width: 50%;
+    width: 70%;
     display: flex;
     justify-content: space-evenly;
 }
 
 header nav ul {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     width: 90%;
 }
 
 header nav ul a {
-    text-align: center;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    width: 90%;
 }
 
 header nav ul a li {
@@ -85,6 +186,7 @@ header nav ul a li {
     text-align: center;
     color: #101820;
     list-style-type: none;
+    transition: all 0.2s ease-in-out;
 }
 
 header nav ul::before,
@@ -93,7 +195,7 @@ ul::after {
     font-size: 20px;
 }
 
-header nav ul a li:hover {
+header nav ul a:hover li {
     font-size: 21px;
     text-decoration: underline #10182050;
 }
@@ -113,15 +215,36 @@ header nav .modo:hover {
     transition: all 0.2s ease-in-out;
 }
 
-/* o dark mode */
+/* #region dark mode */
 .dark-mode {
     background-color: #101820;
-    color: white;
+    color: #fff;
 }
 
-.dark-icon {
+.dark-emoji {
     rotate: 360deg;
 }
+
+.dark-sectionBefore::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 24, 32, 0.7);
+    /* Preto com 50% de opacidade */
+    box-shadow: inset 0 0 10px 10px #101820;
+    z-index: -1;
+    /* Coloca o pseudo-elemento por baixo */
+    transition: all 0.5s ease-in-out;
+}
+
+.dark-navIcons {
+    filter: invert(100%);
+}
+
+/* #endregion */
 
 /* #region hamburguer (o símbolo de navegação que aparece só no mobile) */
 header nav .hamburguer {
@@ -170,7 +293,7 @@ header nav .menu a {
 }
 
 header nav .menu a li {
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     width: 100%;
     background-color: #ffffff21;
@@ -181,7 +304,7 @@ header nav .menu a li {
 }
 
 header nav .menu a li:hover {
-    font-size: 50px;
+    font-size: 40px;
     text-decoration: none;
     background-color: #ffffff13;
     transition: all 0.1s ease-in-out;
@@ -206,14 +329,12 @@ header nav .x {
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.5s ease-out;
-    animation: piscando 1s infinite;
 }
 
 header nav .x:hover {
     background-color: #ffffff25;
     box-shadow: 0 0 20px 20px #ffffff25;
     transition: all 0.2s ease-in-out;
-    animation: piscando 0s none;
 }
 
 header nav .x span {
@@ -230,23 +351,6 @@ header nav .x .xBarra1 {
 header nav .x .xBarra2 {
     rotate: 315deg;
     animation: rodando 1s infinite reverse;
-}
-
-@keyframes piscando {
-    0% {
-        background-color: #ffffff13;
-        box-shadow: 0 0 10px 10px #ffffff13;
-    }
-
-    50% {
-        background-color: #ffffff25;
-        box-shadow: 0 0 20px 20px #ffffff25;
-    }
-
-    100% {
-        background-color: #ffffff13;
-        box-shadow: 0 0 10px 10px #ffffff13;
-    }
 }
 
 @keyframes rodando {
@@ -273,102 +377,143 @@ header nav .x:active span {
 
 /* #region main (conteúdo principal) */
 main {
-    height: calc(100vh - 130px);
-    margin-top: 90px;
+    margin-top: 70px;
     padding: 20px;
 }
 
 main section {
     width: 100%;
-    height: 600px;
-}
-
-main section .container-cards {
+    height: 700px;
+    margin: 50px 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    height: 600px;
 }
 
-main section .container-cards .card-cliente {
-    width: 300px;
-    height: 400px;
+main section,
+main section .container-card {
+    background-size: cover;
     background-position: center;
-    border: 2px solid #ffe600;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    box-shadow: 0 0 100px 10px #ffe6005e;
+    /* Necessário para posicionar o pseudo-elemento */
+    position: relative;
+    /* Para garantir que o conteúdo fique acima da imagem */
+    z-index: 1;
+}
+
+/* primeiro card (cliente) */
+main section:nth-child(1),
+main section:nth-child(1) .container-card {
     background-image: url(https://thumbs.dreamstime.com/b/%C3%ADcone-do-perfil-usu%C3%A1rio-plano-de-fundo-amarelo-abstrato-banner-digital-isolado-no-da-faixa-154780134.jpg);
-    background-size: cover;
-    transition: all 0.5s ease-in;
 }
 
-main section .container-cards .card-cliente:hover {
-    transform-style: preserve-3d;
-    transform: perspective(10cm) rotateX(20deg) rotateY(10deg);
-    border-left: 18px solid #ffe600;
-    border-bottom: 18px solid #ffe600;
-    cursor: grab;
-    transition: all 1s ease-out;
-}
-
-main section .container-cards .card-fornecedor {
-    width: 300px;
-    height: 400px;
-    background-position: center;
-    border: 2px solid #ffe600;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    box-shadow: 0 0 100px 10px #ffe6005e;
+/* segundo card (fornecedor) */
+main section:nth-child(2),
+main section:nth-child(2) .container-card {
     background-image: url(https://www.azi.com.br/wp-content/uploads/2017/09/cliente.jpg);
-    background-size: cover;
-    transition: all 0.5s ease-in;
 }
 
-main section .container-cards .card-fornecedor:hover {
-    transform-style: preserve-3d;
-    transform: perspective(10cm) rotateX(20deg);
-    border-bottom: 18px solid #ffe600;
-    cursor: grab;
-    transition: all 1s ease-out;
+/* terceiro card (vendedor) */
+main section:nth-child(3),
+main section:nth-child(3) .container-card {
+    background-image: url(https://img.freepik.com/vetores-gratis/marca-de-venda-sinal-de-dolar-contorno-plano_78370-7665.jpg?semt=ais_hybrid&w=740&q=80);
 }
 
-main section .container-cards .card-estoque {
-    width: 300px;
-    height: 400px;
-    background-position: center;
-    border: 2px solid #ffe600;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    box-shadow: 0 0 100px 10px #ffe6005e;
+/* quarto card (relatório) */
+main section:nth-child(4),
+main section:nth-child(4) .container-card {
+    background-image: url(https://static.mundoeducacao.uol.com.br/mundoeducacao/2021/03/relatorio.jpg);
+}
+
+/* quinto card (cliente) */
+main section:nth-child(5),
+main section:nth-child(5) .container-card {
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/61/Allentown_Project_042.jpg);
     background-size: cover;
+}
+
+main section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #b6b6b6b3;
+    box-shadow: inset 0 0 10px 10px #b6b6b6;
+    /* Coloca o pseudo-elemento por baixo */
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+}
+
+main section .container-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 80%;
+    height: 500px;
+    margin: 10px;
+    background-position: center;
+    border: 2px solid #ffe600;
+    border-radius: 10px;
+    box-shadow: 0 0 100px 10px #ffe6005e;
+    background-size: cover;
     transition: all 0.5s ease-in;
 }
 
-main section .container-cards .card-estoque:hover {
-    transform-style: preserve-3d;
-    transform: perspective(10cm) rotateX(20deg) rotateY(-10deg);
-    border-right: 18px solid #ffe600;
-    border-bottom: 18px solid #ffe600;
-    cursor: grab;
-    transition: all 1s ease-out;
+main section:hover .container-card {
+    height: 480px;
+    transition: all 0.5s ease-out;
 }
 
-main section .container-cards a {
-    color: #000;
-    text-decoration: none;
-    height: min-content;
-    margin: 20px;
+main section .container-card a {
+    width: 100%;
+    height: 100%;
 }
 
-main section .container-cards a button {
+main section .container-card h1 {
+    background-color: #ffe600;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 80%;
+    text-align: center;
+}
+
+main section .container-card details {
+    background-image: linear-gradient(#d4bc00, #ffe600);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+
+    max-height: 18px;
+    overflow: hidden;
+}
+
+main section .container-card details[open] {
+    background-image: linear-gradient(#d4bc00, #ffe600);
+    height: 50%;
+    max-height: 280px;
+    transition: all 0.8s ease-in-out;
+}
+
+main section .container-card details summary {
+    background-color: #ffe600;
+    transition: all 0.2s ease-in-out;
+}
+
+main section .container-card details summary:hover {
+    background-color: #d4bc00;
+    transition: all 0.2s ease-in-out;
+}
+
+main section .container-card details p {
+    padding: 20px 10px;
+    cursor: default;
+}
+
+main section .card a button {
     width: 200px;
     height: 100px;
     border-radius: 6px;
@@ -380,148 +525,60 @@ main section .container-cards a button {
     transition: all 0.5s ease-in;
 }
 
-main section .container-cards a button:active {
+main section .card a button:active {
     background-color: #ffe600e0;
     border: 0;
     transition: all 1s ease-out;
 }
 
-main section .container-cards .card-cliente:hover a button {
+main section .card:hover a button {
     border: 0;
-    border-left: 8px solid #d4bc00;
-    border-bottom: 8px solid #887a00;
+    width: 95%;
     transition: all 0.5s ease-in;
 }
 
-main section .container-cards .card-cliente:hover a button:active {
-    border: 0;
-    transition: all 1s ease-out;
-}
-
-main section .container-cards .card-fornecedor:hover a button {
+main section .card:hover a button:active {
     border: 0;
     border-bottom: 8px solid #887a00;
-    transition: all 0.5s ease-in;
-}
-
-main section .container-cards .card-fornecedor:hover a button:active {
-    border: 0;
     transition: all 1s ease-out;
 }
 
-main section .container-cards .card-estoque:hover a button {
-    border: 0;
-    border-right: 8px solid #d4bc00;
-    border-bottom: 8px solid #887a00;
-    transition: all 0.5s ease-in;
-}
-
-main section .container-cards .card-estoque:hover a button:active {
-    border: 0;
-    transition: all 1s ease-out;
-}
-
-/* #region cliente.html */
-main section .container-formulario {
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-main section .container-formulario form {
+main section .container-navegador {
     margin: 0 auto;
-    padding: 20px;
+    height: 50px;
+    padding: 10px;
+    width: 600px;
     border-radius: 16px;
-    width: 400px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     background-color: #ffffff3b;
 }
 
-main section .container-formulario form h1 {
-    font-size: 18px;
-    margin: 10px 0;
+main section .container-navegador a {
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    min-width: 22px;
+    height: auto;
 }
 
-main section .container-formulario form .formulario-bloco {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+main section .container-navegador a img {
+    width: 40px;
+    min-width: 22px;
+    height: auto;
+    padding: 5px;
+    background-color: #ffffff3b;
+    box-shadow: 0 0 10px 5px #ffffff00;
+    border-radius: 12px;
+    transition: all 0.2s ease-in;
+}
+
+main section .container-navegador a img:hover {
+    background-color: #ffffff3b;
+    box-shadow: 0 0 10px 5px #ffffff3b;
     transition: all 0.5 ease-in-out;
 }
-
-main section .container-formulario form .formulario-bloco label {
-    text-align: left;
-    font-weight: bold;
-    position: relative;
-    top: 34px;
-    left: 10px;
-    color: #b6b6b6;
-    transition: all 0.5s ease-in-out;
-    opacity: 0;
-}
-
-main section .container-formulario form .formulario-bloco input {
-    padding: 5px 5px;
-    margin: 5px 0;
-    box-sizing: border-box;
-    border: 3px solid #ccc;
-    border-radius: 12px;
-    font-size: 16px;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-}
-
-main section .container-formulario form .formulario-bloco label::after {
-    content: ' *';
-    color: #ffe600;
-}
-
-main section .container-formulario form .formulario-bloco:hover label {
-    top: 0;
-    left: 10px;
-    margin-top: 5px;
-    font-size: 14px;
-    text-align: left;
-    color: white;
-    transition: all 0.2s ease-in-out;
-    opacity: 1;
-}
-
-main section .container-formulario button {
-    width: 100%;
-    background-color: #ffe600;
-    color: #000000;
-    border: none;
-    border-bottom: 3px solid #d4bc00;
-    border-radius: 12px;
-    padding: 10px;
-    margin: 20px 0;
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
-}
-
-main section .container-formulario button:hover {
-    background-color: #d4bc00;
-    transition: all 0.2s ease-in-out;
-}
-
-main section .container-formulario p:nth-child(2) {
-    width: 100%;
-    margin-left: 10px;
-    color: #ffe600;
-    font-size: 15px;
-}
-
-main section .container-formulario p span {
-    opacity: 50%;
-}
-
-/* #endregion */
 
 /* #endregion */
 
@@ -544,11 +601,11 @@ footer {
 /* #region responsivo */
 @media screen and (max-width: 941px) {
     header nav {
-        width: 70%;
+        width: 100%;
     }
 
     header nav ul a li {
-        font-size: 16px;
+        font-size: 13px;
     }
 
     header nav .x {
@@ -556,52 +613,68 @@ footer {
     }
 
     main {
-        height: calc(100vh + 250px);
         margin-top: 80px;
         padding: 15px;
     }
 
-    main section .container-cards {
+    main section {
         flex-wrap: wrap;
-        height: 900px;
     }
 
-    main section .container-cards .card-cliente:hover {
+    main section .card:nth-child(1):hover {
         transform: skew(0, 0);
         border-left: 2px solid #ffe600;
         border-bottom: 2px solid #ffe600;
         transition: 0s;
     }
 
-    main section .container-cards .card-fornecedor:hover {
+    main section .card:nth-child(2):hover {
+        transform: skew(0, 0);
+        border-left: 1px solid #ffe600;
+        border-bottom: 2px solid #ffe600;
+        transition: 0s;
+    }
+
+    main section .card:nth-child(3):hover {
         transform: skew(0, 0);
         border-bottom: 2px solid #ffe600;
         transition: 0s;
     }
 
-    main section .container-cards .card-estoque:hover {
+    main section .card:nth-child(4):hover {
+        transform: skew(0, 0);
+        border-right: 1px solid #ffe600;
+        border-bottom: 2px solid #ffe600;
+        transition: 0s;
+    }
+
+    main section .card:nth-child(5):hover {
         transform: skew(0, 0);
         border-right: 2px solid #ffe600;
         border-bottom: 2px solid #ffe600;
         transition: 0s;
     }
 
-    main section .container-cards .card-cliente:hover a button {
+    main section .card-cliente:hover a button {
         border: 0;
         border-bottom: 8px solid #887a00;
         transition: all 0.5s ease-in;
     }
 
-    main section .container-cards .card-fornecedor:hover a button {
+    main section .card-fornecedor:hover a button {
         border: 0;
         border-bottom: 8px solid #887a00;
         transition: all 0.5s ease-in;
     }
 
-    main section .container-cards .card-estoque:hover a button {
+    main section .card-estoque:hover a button {
         border: 0;
         border-bottom: 8px solid #887a00;
         transition: all 0.5s ease-in;
+    }
+
+    main section .container-navegador {
+        width: 500px;
     }
 }
 
@@ -631,13 +704,18 @@ footer {
     }
 
     main {
-        height: calc(100vh + 750px);
         margin-top: 40px;
         padding: 10px;
     }
 
-    main section .container-cards {
-        height: 1400px;
+    main section .container-card h1 {
+        font-size: 24px;
+    }
+
+    main section .container-card details[open] {
+        height: 100%;
+        max-height: 780px;
+        overflow-y: auto;
     }
 
     main section .container-formulario {
@@ -646,6 +724,14 @@ footer {
 
     main section .container-formulario form {
         width: 75%;
+    }
+
+    main section .container-navegador {
+        width: 90%;
+    }
+
+    main section .container-navegador h1 {
+        font-size: 20px;
     }
 }
 

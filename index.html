@@ -10,20 +10,31 @@
 </head>
 
 <body>
+    <div class="custom-cursor site-wide">
+        <div class="pointer"></div>
+    </div>
     <header>
-        <img src="" alt="logo do SixDev">
+        <a href="index.html">
+            <img src="" alt="logo do SixDev">
+        </a>
         <nav>
             <ul>
                 <a href="index.html">
                     <li>Início</li>
                 </a>
-                <a href="php/cadastro_cli.php">
+                <a href="#secao-cliente">
                     <li>Cliente</li>
                 </a>
-                <a href="php/cadastro_for.php">
+                <a href="#secao-fornecedor">
                     <li>Fornecedor</li>
                 </a>
-                <a href="php/estoque.php">
+                <a href="#secao-vendedor">
+                    <li>Vendedor</li>
+                </a>
+                <a href="#secao-relatorio">
+                    <li>Relatório</li>
+                </a>
+                <a href="#secao-estoque">
                     <li>Estoque</li>
                 </a>
             </ul>
@@ -37,13 +48,19 @@
                 <a href="index.html">
                     <li>Início</li>
                 </a>
-                <a href="php/cadastro_cli.php">
+                <a href="pages/cadastro_cli.html">
                     <li>Cliente</li>
                 </a>
-                <a href="php/cadastro_for.php">
+                <a href="pages/cadastro_for.html">
                     <li>Fornecedor</li>
                 </a>
-                <a href="php/estoque.php">
+                <a href="pages/cadastro_ven.html">
+                    <li>Vendedor</li>
+                </a>
+                <a href="pages/cadastro_rel.html">
+                    <li>Relatório</li>
+                </a>
+                <a href="pages/estoque.html">
                     <li>Estoque</li>
                 </a>
             </ul>
@@ -56,27 +73,92 @@
     <!-- conteúdo principal -->
     <main>
         <!-- seção -->
-        <section>
-            <div class="container-cards" onmouseout="voltar()">
-                <!-- card de cadastro dos clientes -->
-                <div class="card-cliente" id="cardCliente" onmousemove="cliente()">
-                    <a href="cliente.html"><button id="buttonCliente">Cadastro (Cliente)</button></a>
-                </div>
-                <!-- card de cadastro dos fornecedores -->
-                <div class="card-fornecedor" id="cardFornecedor" onmousemove="fornecedor()">
-                    <a href="fornecedor.html"><button>Cadastro (Fornecedor)</button></a>
-                </div>
-                <!-- card do estoque  -->
-                <div class="card-estoque" id="cardEstoque" onmousemove="estoque()">
-                    <a href="php/estoque.php"><button>Estoque</button></a>
-                </div>
+        <section id="secao-cliente">
+            <!-- card dos clientes -->
+            <div class="container-card" id="cardCliente">
+                <a href="pages/cadastro_cli.html"></a>
+                <h1>Cliente</h1>
+                <details>
+                    <summary>Detalhes</summary>
+                    <p>Cliente é uma pessoa ou empresa que adquire um produto ou serviço de outra, seja de forma
+                        direta
+                        ou através de um relacionamento contínuo com a marca.
+                    </p>
+                    <p>Contém: Cadastro, Consulta, Alteração.
+                    </p>
+                </details>
+            </div>
+        </section>
+        <section id="secao-fornecedor">
+            <!-- card dos fornecedores -->
+            <div class="container-card" id="cardFornecedor">
+                <a href="pages/cadastro_for.html"></a>
+                <h1>Fornecedor</h1>
+                <details>
+                    <summary>Detalhes</summary>
+                    <p>Fornecedor é uma pessoa ou empresa que fornece bens ou serviços para outra pessoa ou
+                        empresa.
+                    </p>
+                    <p>Contém: Cadastro, Consulta, Alteração.
+                    </p>
+                </details>
+            </div>
+        </section>
+        <section id="secao-vendedor">
+            <!-- card dos vendedores  -->
+            <div class="container-card" id="cardVendedor">
+                <a href="pages/cadastro_ven.html"></a>
+                <h1>Vendedor</h1>
+                <details>
+                    <summary>Detalhes</summary>
+                    <p>Vendedor é o profissional que conecta a empresa aos seus clientes, responsável por vender
+                        produtos ou serviços, oferecendo informações, orientando e esclarecendo dúvidas para que o
+                        consumidor tome a decisão de compra.
+                    </p>
+                    <p>Contém: Cadastro, Consulta, Alteração.
+                    </p>
+                </details>
+            </div>
+        </section>
+        <section id="secao-relatorio">
+            <!-- card dos relatórios  -->
+            <div class="container-card" id="cardRelatorio">
+                <a href="pages/cadastro_rel.html"></a>
+                <h1>Relatório</h1>
+                <details>
+                    <summary>Detalhes</summary>
+                    <p>Relatório é um gênero textual expositivo que serve para descrever e relatar fatos,
+                        experiências,
+                        observações ou a execução de serviços de forma detalhada e objetiva, em contextos escolares,
+                        acadêmicos e corporativos.
+                    </p>
+                    <p>Contém: Cadastro, Consulta, Alteração.
+                    </p>
+                </details>
+            </div>
+        </section>
+        <section id="secao-estoque">
+            <!-- card do estoque  -->
+            <div class="container-card" id="cardEstoque">
+                <a href="pages/estoque.html"></a>
+                <h1>Estoque</h1>
+                <details>
+                    <summary>Detalhes</summary>
+                    <p>Estoque é um conjunto de bens armazenados por uma empresa para atender futuras necessidades
+                        de
+                        produção ou vendas, como matérias-primas, produtos em processo ou produtos acabados.
+                    </p>
+                    <p>Contém: Cadastro, Alteração.
+                    </p>
+                </details>
             </div>
         </section>
     </main>
     <footer>
         <p>SixDev Technology <span>© 2025</span></p>
     </footer>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/cursorPersonalizado.js"></script>
 </body>
 
 </html>
