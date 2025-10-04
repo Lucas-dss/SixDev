@@ -1,0 +1,372 @@
+main {
+    margin-top: 70px;
+    padding: 20px;
+}
+
+main section {
+    width: 100%;
+    display: block;
+}
+
+main section::before {
+    box-shadow: none;
+}
+
+main section:nth-child(1),
+main section:nth-child(1) .container-card,
+main section:nth-child(1)::before {
+    background: none;
+}
+
+main section .container-formulario {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main section .container-formulario form {
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 16px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff3b;
+}
+
+main section .container-formulario form h1 {
+    font-size: 22px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+main section .container-formulario form select {
+    width: 100%;
+    max-height: 200px;
+    font-size: 12px;
+    margin: 0;
+    padding: 10px 10px;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+    flex: 1;
+}
+
+select,
+::picker(select) {
+    appearance: base-select;
+}
+
+select:hover,
+select:focus {
+    background: #dddddd;
+}
+
+select::picker-icon {
+    color: #999999;
+    transition: 0.4s rotate;
+}
+
+select:open::picker-icon {
+    rotate: 180deg;
+}
+
+::picker(select) {
+    border: none;
+}
+
+option:not(option:last-of-type) {
+    border-bottom: none;
+}
+
+option:hover,
+option:focus {
+    background: #d4bc00;
+}
+
+option .icon {
+    font-size: 1.6rem;
+    text-box: trim-both cap alphabetic;
+}
+
+selectedcontent .icon {
+    display: none;
+}
+
+option:checked {
+    font-weight: bold;
+}
+
+option::checkmark {
+    order: 1;
+    margin-left: auto;
+    content: "🟡";
+}
+
+::picker(select) {
+    opacity: 0;
+    transition: all 0.4s allow-discrete;
+}
+
+::picker(select):popover-open {
+    opacity: 1;
+}
+
+@starting-style {
+    ::picker(select):popover-open {
+        opacity: 0;
+    }
+}
+
+::picker(select) {
+    top: calc(anchor(bottom) + 1px);
+    left: anchor(10%);
+}
+
+
+main section .container-formulario form select:hover {
+    background-color: #ffffff3b;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+main section .container-formulario form select option {
+    gap: 20px;
+    max-height: 100px;
+    background-color: #ffffff3b;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+main section .container-formulario form select option:hover {
+    background-color: #d4bc00;
+    cursor: pointer;
+    transition: all 1s ease-out;
+}
+
+main section .container-formulario button {
+    width: 100%;
+    background-color: #ffe600;
+    color: #000000;
+    border: none;
+    border-bottom: 3px solid #d4bc00;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 20px 0;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+main section .container-formulario button:hover {
+    background-color: #d4bc00;
+    transition: all 0.2s ease-in-out;
+}
+
+main section .container-formulario p:nth-child(2) {
+    width: 100%;
+    margin-left: 10px;
+    color: #ffe600;
+    font-size: 15px;
+}
+
+main section .container-formulario p span {
+    opacity: 50%;
+}
+
+.mensagem {
+    text-align: center;
+}
+
+/* #region responsivo */
+@media screen and (max-width: 941px) {}
+
+@media screen and (max-width: 634px) {
+    main {
+        height: calc(100vh + 10px);
+    }
+
+    main section .container-formulario {
+        margin-top: 10px;
+    }
+
+    main section .container-formulario form {
+        width: 80%;
+    }
+
+    main section .container-formulario form h1 {
+        font-size: 18px;
+    }
+
+    main section .container-formulario p:nth-child(2) {
+        text-align: center;
+    }
+}
+
+/* #endregion */
+
+.container-tabela {
+    width: 100%;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+table {
+    width: 100%;
+    border: 3px solid black;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+thead {
+    background-color: #ffffff3b;
+}
+
+tr,
+td {
+    border: 1px solid black;
+    padding: 2px;
+    text-align: center;
+}
+
+tr:hover,
+td:hover {
+    background-color: #ffffff3b;
+}
+
+td:nth-last-child(2)::before {
+    content: 'R$';
+}
+
+td:nth-last-child(2)::after {
+    content: ',00';
+}
+
+/* o primeiro input (id) */
+td:nth-child(1) input {
+    text-align: center;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.container-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main section .container-botoes a {
+    height: 30px;
+    margin: 20px 20px;
+}
+
+a button {
+    background-color: #ffe600;
+    color: #000000;
+    border: none;
+    border-bottom: 3px solid #d4bc00;
+    border-radius: 12px;
+    padding: 10px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+a button:hover {
+    background-color: #d4bc00;
+    transition: all 0.2s ease-in-out;
+}
+
+.container-tabela {
+    width: 100%;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+table {
+    width: 100%;
+    border: 3px solid black;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+tr,
+td {
+    border: 1px solid black;
+    padding: 2px;
+    text-align: center;
+}
+
+td:hover {
+    background-color: #ffffff3b;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.container-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main section .container-botoes a {
+    height: 30px;
+    margin: 20px 20px;
+}
+
+a button {
+    background-color: #ffe600;
+    color: #000000;
+    border: none;
+    border-bottom: 3px solid #d4bc00;
+    border-radius: 12px;
+    padding: 10px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+a button:hover {
+    background-color: #d4bc00;
+    transition: all 0.2s ease-in-out;
+}
+
+/* #region responsivo */
+@media screen and (max-width: 941px) {
+    .container-tabela {
+        display: flex;
+        justify-content: left;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 634px) {
+    main section .container-alterar form input {
+        width: 100px;
+    }
+
+    .mensagem {
+        top: 88.5%;
+        font-size: 20px;
+    }
+}
+
+/* #endregion */

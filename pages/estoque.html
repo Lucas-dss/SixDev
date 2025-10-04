@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Six Dev | Estoque</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" href="../css/estoque.css">
+    <link rel="icon" href="">
+</head>
+
+<body>
+    <div class="custom-cursor site-wide">
+        <div class="pointer"></div>
+    </div>
+    <header>
+        <a href="../index.html">
+            <img src="" alt="logo do SixDev">
+        </a>
+        <nav>
+            <ul>
+                <a href="../index.html">
+                    <li>Início</li>
+                </a>
+                <a href="cadastro_cli.html">
+                    <li>Cliente</li>
+                </a>
+                <a href="cadastro_for.html">
+                    <li>Fornecedor</li>
+                </a>
+                <a href="estoque.html">
+                    <li>Estoque</li>
+                </a>
+            </ul>
+            <button class="modo" id="modo">🌑</button>
+            <div class="hamburguer" id="hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="menu" id="menu">
+                <a href="../index.html">
+                    <li>Início</li>
+                </a>
+                <a href="cadastro_cli.html">
+                    <li>Cliente</li>
+                </a>
+                <a href="cadastro_for.html">
+                    <li>Fornecedor</li>
+                </a>
+                <a href="estoque.html">
+                    <li>Estoque</li>
+                </a>
+            </ul>
+            <div class="x" id="x">
+                <span class="xBarra1"></span>
+                <span class="xBarra2"></span>
+            </div>
+        </nav>
+    </header>
+    <!-- conteúdo principal -->
+    <main>
+        <!-- seção -->
+        <section>
+            <div class="container-navegador">
+                <a href="estoque_cal.html"><img src="https://cdn-icons-png.flaticon.com/512/3176/3176088.png" alt="icon de estoque de canal"></a>
+                <h1>Estoque</h1>
+                <a href="estoque_ven.html"><img src="https://cdn-icons-png.flaticon.com/512/591/591815.png" alt="icon de estoque de venda"></a>
+            </div>
+            <div class="container-formulario">
+                <form action="estoque.html" method="post">
+                    <h1>Filtro por Fornecedor</h1>
+
+                    <select name="f" id="fornecedor">
+                        <option value="" selected disabled>Selecione um Fornecedor</option>
+                    </select><br>
+
+                    <h1>Filtro por Tamanho</h1>
+                    <!-- Campo select para Tamanho -->
+                    <select name="t" id="tamanho">
+                        <option value="" selected disabled>Selecione o Tamanho</option>
+                    </select><br>
+                    <!-- Botão de submit para enviar o formulário -->
+                    <button type="submit" name="aplica">Aplicar Filtros</button>
+                    <p>SixDev Technology <span>&copy; 2025</span></p>
+                </form>
+            </div>
+            <div class='container-tabela'>
+                <!-- Exibição da tabela com os produtos -->
+                <table border="1">
+                    <thead>
+                        <!-- Cabeçalho da tabela com os títulos das colunas -->
+                        <tr>
+                            <th>ID</th>
+                            <th>Fornecedor</th>
+                            <th>Nome</th>
+                            <th>Modelo</th>
+                            <th>Tamanho</th>
+                            <th>Cor</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Exibe os dados dos produtos em linhas -->
+                            <tr>
+                                <td></td> <!-- Exibe o ID -->
+                                <td></td> <!-- Exibe o Fornecedor -->
+                                <td></td> <!-- Exibe o Nome -->
+                                <td></td> <!-- Exibe o Modelo -->
+                                <td></td> <!-- Exibe o Tamanho -->
+                                <td></td> <!-- Exibe a Cor -->
+                                <td></td> <!-- Exibe o Preço -->
+                                <td></td> <!-- Exibe a Quantidade -->
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>SixDev Technology © 2025</p>
+    </footer>
+    <script src="../js/script.js"></script>
+    <script src="../js/cursorPersonalizado.js"></script>
+    <script src="../js/estoque.js"></script>
+</body>
+
+</html>

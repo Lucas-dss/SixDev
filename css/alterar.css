@@ -1,0 +1,215 @@
+main {
+    margin-top: 70px;
+    padding: 20px;
+}
+
+main section {
+    width: 100%;
+    display: block;
+}
+
+main section::before {
+    box-shadow: none;
+}
+
+main section:nth-child(1),
+main section:nth-child(1) .container-card,
+main section:nth-child(1)::before {
+    background: none;
+    box-shadow: none;
+}
+
+main section .container-alterar {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main section .container-alterar form {
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 16px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff3b;
+}
+
+main section .container-alterar form h1 {
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+main section .container-alterar form input {
+    width: 100%;
+    min-width: 100px;
+    padding: 5px 5px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    border-radius: 12px;
+    font-size: 16px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+main section .container-alterar form button {
+    width: 30%;
+    min-width: 80px;
+    background-color: #ffe600;
+    color: #000000;
+    border: none;
+    border-bottom: 3px solid #d4bc00;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 20px 0;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+main section .container-alterar form button:hover {
+    background-color: #d4bc00;
+    transition: all 0.2s ease-in-out;
+}
+
+/* tabela de usuários */
+
+.mensagem {
+    position: fixed;
+    width: 100%;
+    top: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    animation: desaparecerMensagem 5s ease-in-out;
+    transition: all 1s ease-in-out;
+    opacity: 0;
+}
+
+.mensagem span {
+    margin-left: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+    box-shadow: 0 0 20px 10px #ff0;
+    background-color: rgba(255, 255, 0, 0.8);
+    z-index: 1;
+}
+
+@keyframes desaparecerMensagem {
+    0% {
+        opacity: 1;
+        top: 90%;
+    }
+
+    75% {
+        top: 80%;
+    }
+
+    85% {
+        top: 85%;
+    }
+
+    90% {
+        top: 90%;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.container-tabela {
+    width: 100%;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+table {
+    width: 100%;
+    border: 3px solid black;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+tr,
+td {
+    border: 1px solid black;
+    padding: 2px;
+    text-align: center;
+}
+
+tr:nth-child(1) {
+    background-color: #ffffff3b;
+}
+
+td:hover {
+    background-color: #ffffff3b;
+}
+
+/* o primeiro input (id) */
+td:nth-child(1) input {
+    text-align: center;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.container-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main section .container-botoes a {
+    height: 30px;
+    margin: 20px 20px;
+}
+
+a button {
+    background-color: #ffe600;
+    color: #000000;
+    border: none;
+    border-bottom: 3px solid #d4bc00;
+    border-radius: 12px;
+    padding: 10px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+a button:hover {
+    background-color: #d4bc00;
+    transition: all 0.2s ease-in-out;
+}
+
+/* #region responsivo */
+@media screen and (max-width: 941px) {
+    .container-tabela {
+        display: flex;
+        justify-content: left;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 634px) {
+    main section .container-alterar form input {
+        width: 100px;
+    }
+
+    .mensagem {
+        top: 88.5%;
+        font-size: 20px;
+    }
+}
+
+/* #endregion */

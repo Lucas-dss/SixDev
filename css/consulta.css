@@ -1,0 +1,283 @@
+main {
+    margin-top: 70px;
+    padding: 20px;
+}
+
+main section {
+    width: 100%;
+    display: block;
+}
+
+main section::before {
+    box-shadow: none;
+}
+
+main section:nth-child(1),
+main section:nth-child(1) .container-card,
+main section:nth-child(1)::before {
+    background: none;
+    box-shadow: none;
+}
+
+main section .container-consulta {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main section .container-consulta form {
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 16px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff3b;
+}
+
+main section .container-consulta form h1 {
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+main section .container-consulta form .formulario-bloco {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: all 0.5 ease-in-out;
+}
+
+main section .container-consulta form .formulario-bloco label {
+    text-align: left;
+    font-weight: bold;
+    position: relative;
+    top: 34px;
+    left: 10px;
+    color: #b6b6b6;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+}
+
+main section .container-consulta form .formulario-bloco input {
+    padding: 5px 5px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    border-radius: 12px;
+    font-size: 16px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+main section .container-consulta form .formulario-bloco:hover label {
+    top: 0;
+    left: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: left;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+}
+
+main section .container-consulta button {
+    width: 100%;
+    background-color: #ffe600;
+    color: #000000;
+    border: none;
+    border-bottom: 3px solid #d4bc00;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 20px 0;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+main section .container-consulta button:hover {
+    background-color: #d4bc00;
+    transition: all 0.2s ease-in-out;
+}
+
+main section .container-consulta p:nth-child(2) {
+    width: 100%;
+    margin-left: 10px;
+    color: #ffe600;
+    font-size: 15px;
+}
+
+main section .container-consulta p span {
+    opacity: 50%;
+}
+
+/* tabela de usuários */
+
+.mensagem {
+    position: fixed;
+    width: 10%;
+    top: 27%;
+    right: 12%;
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    animation: desaparecerMensagem 5s ease-in-out;
+    transition: all 1s ease-in-out;
+    opacity: 0;
+}
+
+.mensagem span {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+    box-shadow: 0 0 20px 10px #f00;
+    background-color: rgba(255, 0, 0, 0.8);
+    z-index: 1;
+}
+
+@keyframes desaparecerMensagem {
+    0% {
+        opacity: 1;
+        top: 37%;
+    }
+
+    75% {
+        top: 27%;
+    }
+
+    90% {
+        top: 7%;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.container-tabela {
+    width: 100%;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    box-shadow: inset 0 0 15px 2px #000;
+}
+
+table {
+    width: 100%;
+    border: 3px solid black;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+tr,
+td {
+    border: 2px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+tr:nth-child(1) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+td:nth-child(2) {
+    animation: piscando 1s ease-in-out;
+}
+
+@keyframes piscando {
+    0% {
+        background-color: #00000000;
+    }
+
+    50% {
+        background-color: #d4bc00;
+    }
+
+    100% {
+        background-color: #00000000;
+    }
+}
+
+tr:hover,
+td:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+td:nth-last-child(2) a {
+    color: #f00;
+}
+
+td:nth-last-child(2):hover {
+    background-color: rgba(255, 0, 0, 0.25);
+}
+
+tr:nth-child(1) td:nth-last-child(2):hover,
+tr:nth-child(1) td:nth-last-child(1):hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+td:nth-last-child(1) a {
+    color: rgb(155, 0, 255);
+}
+
+td:nth-last-child(1):hover {
+    background-color: rgba(155, 0, 255, 0.25);
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.container-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main section .container-botoes a {
+    height: 30px;
+    margin: 20px 20px;
+}
+
+a button {
+    background-color: #ffe600;
+    color: #000000;
+    border: none;
+    border-bottom: 3px solid #d4bc00;
+    border-radius: 12px;
+    padding: 10px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+a button:hover {
+    background-color: #d4bc00;
+    transition: all 0.2s ease-in-out;
+}
+
+/* #region responsivo */
+@media screen and (max-width: 941px) {
+    .container-tabela {
+        display: flex;
+        justify-content: left;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 634px) {
+    main section .container-consulta {
+        margin: 10px;
+    }
+
+    main section .container-consulta form {
+        width: 80%;
+    }
+}
+
+/* #endregion */

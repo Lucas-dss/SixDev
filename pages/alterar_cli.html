@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Six Dev | Alterar Cliente</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/alterar.css">
+    <link rel="icon" href="">
+</head>
+
+<body>
+    <div class="custom-cursor site-wide">
+        <div class="pointer"></div>
+    </div>
+    <header>
+        <a href="../index.html">
+            <img src="" alt="logo do SixDev">
+        </a>
+        <nav>
+            <ul>
+                <a href="../index.html">
+                    <li>Início</li>
+                </a>
+                <a href="cadastro_cli.html">
+                    <li>Cliente</li>
+                </a>
+                <a href="cadastro_for.html">
+                    <li>Fornecedor</li>
+                </a>
+                <a href="estoque.html">
+                    <li>Estoque</li>
+                </a>
+            </ul>
+            <button class="modo" id="modo">🌑</button>
+            <div class="hamburguer" id="hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="menu" id="menu">
+                <a href="../index.html">
+                    <li>Início</li>
+                </a>
+                <a href="cadastro_cli.html">
+                    <li>Cliente</li>
+                </a>
+                <a href="cadastro_for.html">
+                    <li>Fornecedor</li>
+                </a>
+                <a href="estoque.html">
+                    <li>Estoque</li>
+                </a>
+            </ul>
+            <div class="x" id="x">
+                <span class="xBarra1"></span>
+                <span class="xBarra2"></span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="container-navegador">
+                <a href="consulta_cli.html"><img src="https://cdn-icons-png.flaticon.com/512/702/702988.png"
+                        alt="icon de consulta"></a>
+                <h1>Clientes</h1>
+                <a href="cadastro_cli.html"><img src="https://cdn-icons-png.flaticon.com/512/748/748137.png"
+                        alt="icon de cadastro"></a>
+            </div>
+            <div class="container-alterar">
+                <form method="POST" action="">
+                    <h1>Alteração do Registro do Fornecedor</h1>
+                    <div class="container-tabela">
+                        <table>
+                            <tr>
+                                <td><b>ID</b></td>
+                                <td><b>Nome</b></td>
+                                <td><b>Telefone</b></td>
+                                <td><b>CPF</b></td>
+                                <td><b>Endereço</b></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="id" readonly></td>
+                                <td><input type="text" name="nome_cliente" minlength="4" maxlength="50" autofocus></td>
+                                <td><input type="text" name="tel" minlength="11" maxlength="11"></td>
+                                <td><input type="text" name="cpf" minlength="11" maxlength="11"></td>
+                                <td><input type="text" name="end" minlength="7" maxlength="100"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button type="submit">Salvar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>SixDev Technology © 2025</p>
+    </footer>
+    <script src="../js/script.js"></script>
+    <script src="../js/cursorPersonalizado.js"></script>
+</body>
+
+</html>
