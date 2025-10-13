@@ -180,7 +180,11 @@ td {
 }
 
 tr:nth-child(1) {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: #ffffff3b;
+}
+
+tr:nth-child(1):hover {
+    background-color: #ffffff3b;
 }
 
 td:nth-child(2) {
@@ -203,7 +207,7 @@ td:nth-child(2) {
 
 tr:hover,
 td:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: #ffffff18;
 }
 
 td:nth-last-child(2) a {
@@ -216,7 +220,7 @@ td:nth-last-child(2):hover {
 
 tr:nth-child(1) td:nth-last-child(2):hover,
 tr:nth-child(1) td:nth-last-child(1):hover {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: #ffffff18;
 }
 
 td:nth-last-child(1) a {

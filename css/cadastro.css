@@ -36,12 +36,7 @@ main section .container-formulario form {
     flex-direction: column;
     align-items: center;
     background-color: #ffffff3b;
-    transition: all 0.5s ease;
-}
-
-main section .container-formulario form:hover {
-    backdrop-filter: blur(5px);
-    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
 }
 
 main section .container-formulario form h1 {
@@ -148,6 +143,10 @@ main section .container-formulario p span {
 
     main section .container-formulario form h1 {
         font-size: 18px;
+    }
+
+    main section .container-formulario p:nth-child(2) {
+        text-align: center;
     }
 }
 

@@ -1,23 +1,23 @@
-// Site wide cursor
-const site_wide_cursor = document.querySelector('.custom-cursor.site-wide');
+const cursorPersonalizado = document.querySelector('.custom-cursor.site-wide');
 
 document.addEventListener('mouseenter', () => {
-	site_wide_cursor.style.display = 'block';
+	cursorPersonalizado.style.display = 'block';
 });
 
 document.addEventListener('mouseleave', () => {
-	site_wide_cursor.style.display = 'none';
+	cursorPersonalizado.style.display = 'none';
 });
 
-document.addEventListener('mousemove', TrackCursor);
+document.addEventListener('mousemove', seguirCursor);
 
-document.addEventListener('mousedown', () => site_wide_cursor.classList.add('active'));
-document.addEventListener('mouseup', () => site_wide_cursor.classList.remove('active'));
+// quando pressiona o click, adiciona a classe 'ativa'
+document.addEventListener('mousedown', () => cursorPersonalizado.classList.add('active'));
+// quando solta o click, remove a classe 'ativa'
+document.addEventListener('mouseup', () => cursorPersonalizado.classList.remove('active'));
 
-function TrackCursor(evt) {
-	const w = site_wide_cursor.clientWidth;
-	const h = site_wide_cursor.clientHeight;
+function seguirCursor(event) {
+	const posicaoDoX = cursorPersonalizado.clientWidth;
+	const posicaoDoY = cursorPersonalizado.clientHeight;
 
-	site_wide_cursor.style.transform = 
-		`translate(${evt.clientX - w/2}px, ${evt.clientY - h/2}px)`;
+	cursorPersonalizado.style.transform = `translate(${event.clientX - posicaoDoX / 2}px, ${event.clientY - posicaoDoY / 2}px)`;
 }

@@ -16,6 +16,7 @@ main section:nth-child(1),
 main section:nth-child(1) .container-card,
 main section:nth-child(1)::before {
     background: none;
+    box-shadow: none;
 }
 
 main section .container-formulario {
@@ -27,7 +28,7 @@ main section .container-formulario {
 }
 
 main section .container-formulario form {
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 20px;
     border-radius: 16px;
     width: 400px;
@@ -35,6 +36,7 @@ main section .container-formulario form {
     flex-direction: column;
     align-items: center;
     background-color: #ffffff3b;
+    backdrop-filter: blur(4px);
 }
 
 main section .container-formulario form h1 {
@@ -45,16 +47,16 @@ main section .container-formulario form h1 {
 
 main section .container-formulario form select {
     width: 100%;
-    max-height: 200px;
     font-size: 12px;
     margin: 0;
     padding: 10px 10px;
     background-color: #fff;
+    color: #000000;
     border: none;
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
-    transition: all 1s ease-in-out;
+    transition: all 0.2s ease-in-out;
     flex: 1;
 }
 
@@ -67,12 +69,12 @@ select:hover,
 select:focus {
     background: #dddddd;
 }
-
+/* o ícone triangular */
 select::picker-icon {
     color: #999999;
     transition: 0.4s rotate;
 }
-
+/* o ícone triangular ao abrir o select */
 select:open::picker-icon {
     rotate: 180deg;
 }
@@ -123,24 +125,50 @@ option::checkmark {
         opacity: 0;
     }
 }
-
+/* a caixa dos options */
 ::picker(select) {
     top: calc(anchor(bottom) + 1px);
     left: anchor(10%);
+    max-height: 100px;
+    border-radius: 4px;
+}
+
+::picker(select)::-webkit-scrollbar {
+    background-color: #d4bc00;
+    width: 10px;
+}
+
+::picker(select)::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(#ffe600, #fff);
+    border-radius: 2px;
+}
+
+::picker(select)::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+}
+
+::picker(select)::-webkit-scrollbar-thumb:active {
+    cursor: grab;
 }
 
 
 main section .container-formulario form select:hover {
-    background-color: #ffffff3b;
+    background-color: #ffffffcb;
     border: none;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+}
+
+main section .container-formulario form select:active {
+    background-color: #ffffffcb;
+    cursor: pointer;
 }
 
 main section .container-formulario form select option {
     gap: 20px;
     max-height: 100px;
     background-color: #ffffff3b;
+    padding: 1px 20px;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
 }
@@ -148,7 +176,11 @@ main section .container-formulario form select option {
 main section .container-formulario form select option:hover {
     background-color: #d4bc00;
     cursor: pointer;
-    transition: all 1s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+main section .container-formulario form select option:nth-child(1):hover {
+    background-color: #ffffff3b;
 }
 
 main section .container-formulario button {
@@ -184,33 +216,6 @@ main section .container-formulario p span {
     text-align: center;
 }
 
-/* #region responsivo */
-@media screen and (max-width: 941px) {}
-
-@media screen and (max-width: 634px) {
-    main {
-        height: calc(100vh + 10px);
-    }
-
-    main section .container-formulario {
-        margin-top: 10px;
-    }
-
-    main section .container-formulario form {
-        width: 80%;
-    }
-
-    main section .container-formulario form h1 {
-        font-size: 18px;
-    }
-
-    main section .container-formulario p:nth-child(2) {
-        text-align: center;
-    }
-}
-
-/* #endregion */
-
 .container-tabela {
     width: 100%;
     max-height: 200px;
@@ -223,6 +228,7 @@ table {
     width: 100%;
     border: 3px solid black;
     border-collapse: collapse;
+    backdrop-filter: blur(4px);
     cursor: pointer;
 }
 
@@ -239,7 +245,7 @@ td {
 
 tr:hover,
 td:hover {
-    background-color: #ffffff3b;
+    background-color: #ffffff18;
 }
 
 td:nth-last-child(2)::before {
@@ -297,31 +303,6 @@ a button:hover {
     overflow-y: scroll;
 }
 
-table {
-    width: 100%;
-    border: 3px solid black;
-    border-collapse: collapse;
-    cursor: pointer;
-}
-
-tr,
-td {
-    border: 1px solid black;
-    padding: 2px;
-    text-align: center;
-}
-
-td:hover {
-    background-color: #ffffff3b;
-}
-
-a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-}
-
 .container-botoes {
     display: flex;
     flex-wrap: wrap;
@@ -359,6 +340,22 @@ a button:hover {
 }
 
 @media screen and (max-width: 634px) {
+    main section .container-formulario {
+        margin-top: 10px;
+    }
+
+    main section .container-formulario form {
+        width: 80%;
+    }
+
+    main section .container-formulario form h1 {
+        font-size: 18px;
+    }
+
+    main section .container-formulario p:nth-child(2) {
+        text-align: center;
+    }
+
     main section .container-alterar form input {
         width: 100px;
     }

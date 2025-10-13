@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Six Dev | Início</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="">
+    <link rel="icon" href="img/Icon.png">
 </head>
 
 <body>
@@ -14,9 +14,12 @@
         <div class="pointer"></div>
     </div>
     <header>
-        <a href="index.html">
-            <img src="" alt="logo do SixDev">
-        </a>
+        <div class="icon">
+            <a href="index.html">
+                <img src="img/Icon.png" alt="logo do SixDev">
+                <p>Six Dev</p>
+            </a>
+        </div>
         <nav>
             <ul>
                 <a href="index.html">
@@ -48,19 +51,19 @@
                 <a href="index.html">
                     <li>Início</li>
                 </a>
-                <a href="pages/cadastro_cli.html">
+                <a href="php/cadastro_cli.php">
                     <li>Cliente</li>
                 </a>
-                <a href="pages/cadastro_for.html">
+                <a href="php/cadastro_for.php">
                     <li>Fornecedor</li>
                 </a>
-                <a href="pages/cadastro_ven.html">
+                <a href="php/cadastro_ven.php">
                     <li>Vendedor</li>
                 </a>
-                <a href="pages/cadastro_rel.html">
+                <a href="php/cadastro_rel.php">
                     <li>Relatório</li>
                 </a>
-                <a href="pages/estoque.html">
+                <a href="php/estoque.php">
                     <li>Estoque</li>
                 </a>
             </ul>
@@ -76,7 +79,7 @@
         <section id="secao-cliente">
             <!-- card dos clientes -->
             <div class="container-card" id="cardCliente">
-                <a href="pages/cadastro_cli.html"></a>
+                <a href="php/cadastro_cli.php"></a>
                 <h1>Cliente</h1>
                 <details>
                     <summary>Detalhes</summary>
@@ -92,7 +95,7 @@
         <section id="secao-fornecedor">
             <!-- card dos fornecedores -->
             <div class="container-card" id="cardFornecedor">
-                <a href="pages/cadastro_for.html"></a>
+                <a href="php/cadastro_for.php"></a>
                 <h1>Fornecedor</h1>
                 <details>
                     <summary>Detalhes</summary>
@@ -107,7 +110,7 @@
         <section id="secao-vendedor">
             <!-- card dos vendedores  -->
             <div class="container-card" id="cardVendedor">
-                <a href="pages/cadastro_ven.html"></a>
+                <a href="php/cadastro_ven.php"></a>
                 <h1>Vendedor</h1>
                 <details>
                     <summary>Detalhes</summary>
@@ -123,7 +126,8 @@
         <section id="secao-relatorio">
             <!-- card dos relatórios  -->
             <div class="container-card" id="cardRelatorio">
-                <a href="pages/cadastro_rel.html"></a>
+                <!-- href="php/cadastro_rel.php" -->
+                <a onclick="printDiv('cardRelatorio')"></a>
                 <h1>Relatório</h1>
                 <details>
                     <summary>Detalhes</summary>
@@ -132,7 +136,7 @@
                         observações ou a execução de serviços de forma detalhada e objetiva, em contextos escolares,
                         acadêmicos e corporativos.
                     </p>
-                    <p>Contém: Cadastro, Consulta, Alteração.
+                    <p>Contém: Impressão de Relatórios.
                     </p>
                 </details>
             </div>
@@ -140,7 +144,7 @@
         <section id="secao-estoque">
             <!-- card do estoque  -->
             <div class="container-card" id="cardEstoque">
-                <a href="pages/estoque.html"></a>
+                <a href="php/estoque.php"></a>
                 <h1>Estoque</h1>
                 <details>
                     <summary>Detalhes</summary>
@@ -148,7 +152,7 @@
                         de
                         produção ou vendas, como matérias-primas, produtos em processo ou produtos acabados.
                     </p>
-                    <p>Contém: Cadastro, Alteração.
+                    <p>Contém: Visualização atual do Estoque.
                     </p>
                 </details>
             </div>
