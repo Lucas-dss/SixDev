@@ -15,21 +15,24 @@
         <div class="pointer"></div>
     </div>
     <header>
-        <a href="../index.html">
-            <img src="" alt="logo do SixDev">
-        </a>
+        <div class="icon">
+            <a href="../index.html">
+                <img src="../img/Icon.png" alt="logo do SixDev">
+                <p>Six Dev</p>
+            </a>
+        </div>
         <nav>
             <ul>
                 <a href="../index.html">
                     <li>Início</li>
                 </a>
-                <a href="cadastro_cli.php">
+                <a href="cadastro_cli.html">
                     <li>Cliente</li>
                 </a>
-                <a href="cadastro_for.php">
+                <a href="cadastro_for.html">
                     <li>Fornecedor</li>
                 </a>
-                <a href="estoque.php">
+                <a href="estoque.html">
                     <li>Estoque</li>
                 </a>
             </ul>
@@ -43,13 +46,13 @@
                 <a href="../index.html">
                     <li>Início</li>
                 </a>
-                <a href="cadastro_cli.php">
+                <a href="cadastro_cli.html">
                     <li>Cliente</li>
                 </a>
-                <a href="cadastro_for.php">
+                <a href="cadastro_for.html">
                     <li>Fornecedor</li>
                 </a>
-                <a href="estoque.php">
+                <a href="estoque.html">
                     <li>Estoque</li>
                 </a>
             </ul>
@@ -63,9 +66,9 @@
     <main>
         <section>
             <div class="container-navegador">
-                <a href="consulta_cli.php"><img src="https://cdn-icons-png.flaticon.com/512/702/702988.png" alt="icon de consulta"></a>
+                <a href="consulta_cli.html"><img src="https://cdn-icons-png.flaticon.com/512/702/702988.png" alt="icon de consulta"></a>
                 <h1>Clientes</h1>
-                <a href="cadastro_cli.php"><img src="https://cdn-icons-png.flaticon.com/512/748/748137.png" alt="icon de cadastro"></a>
+                <a href="cadastro_cli.html"><img src="https://cdn-icons-png.flaticon.com/512/748/748137.png" alt="icon de cadastro"></a>
             </div>
             <div class="container-consulta">
                 <form action="" method="post">
@@ -78,8 +81,8 @@
                     <p>SixDev Technology <span>&copy; 2025</span></p>
                 </form>
             </div>
-            <?php
-            include "mysqlconecta.php";
+            <?html
+            include "mysqlconecta.html";
 
             $busca = '';
 
@@ -120,7 +123,7 @@
                 echo ("<td>" . $cpf . "</td>");
                 echo ("<td>" . $end . "</td>");
                 echo ("<td><a href='?excluir_id=" . $id_cliente . "' id='botaoExcluir'>EXCLUIR</a></td>");
-                echo ("<td><a href='alterar_cli.php?id=" . $id_cliente . "'>ALTERAR</a></td>");
+                echo ("<td><a href='alterar_cli.html?id=" . $id_cliente . "'>ALTERAR</a></td>");
                 echo ("</tr>");
             }
 
@@ -134,7 +137,7 @@
                 }
             }
 
-            echo ("<div class='container-botoes'><a href=cadastro_cli.php><button>VOLTAR PARA O CADASTRO</button></a></div></div>");
+            echo ("<div class='container-botoes'><a href=cadastro_cli.html><button>VOLTAR PARA O CADASTRO</button></a></div></div>");
 
             mysqli_close($conexao);
             ?>
