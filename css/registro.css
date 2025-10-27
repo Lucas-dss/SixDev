@@ -1,0 +1,96 @@
+main {
+    margin-top: 70px;
+    padding: 20px;
+}
+
+main section {
+    width: 100%;
+    display: block;
+}
+
+main section::before {
+    box-shadow: none;
+}
+
+main section:nth-child(1),
+main section:nth-child(1) .container-card,
+main section:nth-child(1)::before {
+    background: none;
+    box-shadow: none;
+}
+
+.container-tabela {
+    width: 100%;
+    max-height: 600px;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+table {
+    width: 100%;
+    border: 3px solid black;
+    border-collapse: collapse;
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+}
+
+thead {
+    background-color: #ffffff3b;
+    height: 36px;
+}
+
+thead tr,
+thead th {
+    border: 2px solid black;
+}
+
+tr,
+td {
+    border: 2px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+tr:hover,
+td:hover {
+    background-color: #ffffff18;
+}
+
+/* o primeiro input (id) */
+td:nth-child(1) input {
+    text-align: center;
+}
+
+td:nth-last-child(1) a {
+    color: rgb(0, 0, 255);
+}
+
+td:nth-last-child(1):hover {
+    background-color: rgba(0, 0, 255, 0.25);
+}
+
+td:nth-last-child(1):hover a {
+    color: white;
+}
+
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* #region responsivo */
+@media screen and (max-width: 941px) {
+    .container-tabela {
+        display: flex;
+        justify-content: left;
+        text-align: left;
+    }
+}
+
+/* #endregion */

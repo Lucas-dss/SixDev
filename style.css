@@ -7,7 +7,7 @@
 /* #region cursor do mouse */
 html,
 body {
-    cursor: none;
+    /* cursor: none; */
 }
 
 .custom-cursor {
@@ -750,7 +750,7 @@ footer {
     }
 
     main section .container-card h1 {
-        font-size: 18px;
+        font-size: 16px;
         letter-spacing: 7px;
     }
 

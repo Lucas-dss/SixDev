@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 12-Set-2025 às 12:57
+-- Tempo de geração: 17-Out-2025 às 17:51
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.0.26
 
@@ -26,21 +26,6 @@ USE `pf`;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `canal`
---
-
-DROP TABLE IF EXISTS `canal`;
-CREATE TABLE IF NOT EXISTS `canal` (
-  `id_canal` int NOT NULL AUTO_INCREMENT,
-  `id_venda` int NOT NULL,
-  `id_cliente` int NOT NULL,
-  `proc_venda` int NOT NULL,
-  PRIMARY KEY (`id_canal`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `cliente`
 --
 
@@ -50,9 +35,16 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `nome_cliente` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `tel` int NOT NULL,
   `cpf` int NOT NULL,
-  `end` int NOT NULL,
+  `end` varchar(50) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`id_cliente`, `nome_cliente`, `tel`, `cpf`, `end`) VALUES
+(1, 'FelipeXr', 1234567890, 43568231, 'RUA DO NUNCA');
 
 -- --------------------------------------------------------
 
@@ -124,11 +116,41 @@ DROP TABLE IF EXISTS `venda`;
 CREATE TABLE IF NOT EXISTS `venda` (
   `id_venda` int NOT NULL AUTO_INCREMENT,
   `id_cliente` int NOT NULL,
+  `id_vendedor` int NOT NULL,
   `quantidade` int NOT NULL,
-  `proc_venda` int NOT NULL DEFAULT '1',
-  `nome_produto` varchar(100) NOT NULL,
+  `prod_venda` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_venda`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `venda`
+--
+
+INSERT INTO `venda` (`id_venda`, `id_cliente`, `id_vendedor`, `quantidade`, `prod_venda`) VALUES
+(1, 1, 2, 15, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vendedor`
+--
+
+DROP TABLE IF EXISTS `vendedor`;
+CREATE TABLE IF NOT EXISTS `vendedor` (
+  `id_vendedor` int NOT NULL AUTO_INCREMENT,
+  `nome_vende` varchar(50) NOT NULL,
+  `end_vende` varchar(50) NOT NULL,
+  `tel_vende` int NOT NULL,
+  `cpf_vende` int NOT NULL,
+  PRIMARY KEY (`id_vendedor`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `vendedor`
+--
+
+INSERT INTO `vendedor` (`id_vendedor`, `nome_vende`, `end_vende`, `tel_vende`, `cpf_vende`) VALUES
+(2, 'Vinicius', 'Rua VR, 107', 1234567890, 987654321);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

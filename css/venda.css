@@ -186,6 +186,29 @@ main section .container-formulario form select option:nth-child(1):hover {
     background-color: #ffffff3b;
 }
 
+main section .container-formulario form label {
+    text-align: center;
+}
+
+main section .container-formulario form input {
+    width: 15%;
+    font-size: 25px;
+    margin: 10px 0;
+    padding: 10px 10px;
+    background-color: #fff;
+    color: #000000;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+main section .container-formulario form input:focus-visible {
+    width: 90%;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
 main section .container-formulario button {
     width: 100%;
     background-color: #ffe600;
@@ -216,7 +239,44 @@ main section .container-formulario p span {
 }
 
 .mensagem {
+    position: fixed;
     text-align: center;
+    width: 10%;
+    top: 27%;
+    right: 12%;
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    animation: desaparecerMensagem 8s ease-in-out;
+    transition: all 1s ease-in-out;
+    opacity: 0;
+}
+
+.mensagem span {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+    box-shadow: 0 0 200px 50px #f00;
+    background-color: rgba(255, 0, 0, 0.4);
+    z-index: 1;
+}
+
+@keyframes desaparecerMensagem {
+    0% {
+        opacity: 1;
+        top: 37%;
+    }
+
+    75% {
+        top: 27%;
+    }
+
+    90% {
+        top: 7%;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .container-tabela {
@@ -327,7 +387,8 @@ a button:hover {
     }
 
     .mensagem {
-        top: 88.5%;
+        position: static;
+        width: 100%;
         font-size: 20px;
     }
 }

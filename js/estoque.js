@@ -34,7 +34,7 @@ rowQuantidade.forEach(quantidade => {
     quantidade.style.backgroundColor = `rgba(${red}, ${green}, 0, 0.7)`;
 
     // se caso estiver quase acabando, coloca uma exclamação no lado
-    if (parseInt(quantidade.textContent.trim()) == 0) {
+    if (parseInt(quantidade.textContent.trim()) <= 0) {
         quantidade.textContent = "(-)";
     } else if (parseInt(quantidade.textContent.trim()) < 6) {
         quantidade.textContent = quantidade.textContent + " (!!!)";
