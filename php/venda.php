@@ -32,13 +32,13 @@
                 <a href="../index.html">
                     <li>Início</li>
                 </a>
-                <a href="cadastro_cli.php">
+                <a href="cliente/cadastro_cli.php">
                     <li>Cliente</li>
                 </a>
-                <a href="cadastro_for.php">
+                <a href="fornecedor/cadastro_for.php">
                     <li>Fornecedor</li>
                 </a>
-                <a href="cadastro_ven.php">
+                <a href="vendedor/cadastro_ven.php">
                     <li>Vendedor</li>
                 </a>
                 <a href="venda.php">
@@ -61,13 +61,13 @@
                 <a href="../index.html">
                     <li>Início</li>
                 </a>
-                <a href="cadastro_cli.php">
+                <a href="cliente/cadastro_cli.php">
                     <li>Cliente</li>
                 </a>
-                <a href="cadastro_for.php">
+                <a href="fornecedor/cadastro_for.php">
                     <li>Fornecedor</li>
                 </a>
-                <a href="cadastro_ven.php">
+                <a href="vendedor/cadastro_ven.php">
                     <li>Vendedor</li>
                 </a>
                 <a href="venda.php">
@@ -166,7 +166,7 @@
                     } else {
                         echo "<div class='mensagem'><span>Erro:</span> A quantidade requerida é maior do que o total. Tente de novo.</div>";
                         // deleta a linha no relatório se caso der erro na hora da compra
-                        $sql_venda =+ mysqli_query($conexao, "DELETE FROM venda WHERE id_venda = '$id_venda'");
+                        $sql_venda = +mysqli_query($conexao, "DELETE FROM venda WHERE id_venda = '$id_venda'");
                     }
                 } else {
                     echo "<div class='mensagem'>Erro: " . mysqli_error($conexao) . "</div>";

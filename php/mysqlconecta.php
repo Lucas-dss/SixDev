@@ -5,6 +5,4 @@ $usuario = "root";
 $senha = "";
 $bancoDados = "pf";
 
-$conexao = mysqli_connect($servidor,$usuario,$senha,$bancoDados) or die ("problemas para conectar com o banco, verifique os dados");
-
-?>
+$conexao = mysqli_connect($servidor, $usuario, $senha, $bancoDados) or die("problemas para conectar com o banco, verifique os dados");

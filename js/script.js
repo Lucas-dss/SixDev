@@ -102,24 +102,36 @@ function temaEscuro() {
 };
 
 function direcionarParaImpressao(idDaVenda) {
-    window.open('http://localhost/SixDev/php/impressao.php?id=' + idDaVenda);
+    const host = window.location.origin;
+    const url = `${host}/SixDev/php/impressao.php?id=${idDaVenda}`;
+    window.open(url, '_blank');
 }
 
-var novaJanela;
+let novaJanela;
 
 // função de imprimir relatórios
 function printPorId(idParaImpressao) {
     // define o conteúdo
     var conteudo = document.getElementById(idParaImpressao).innerHTML;
-    // cria uma nova janela 600x800
-    novaJanela = window.open('', '', 'height=600,width=800,top=140,left=800');
+    // Calcula dimensões da tela
+    var larguraTela = window.screen.availWidth;
+    var alturaDaJanela = window.screen.availHeight;
+
+    // Define o tamanho da nova janela: metade da tela e lado direito
+    var largura = larguraTela / 2;
+    var posicaoEsquerda = larguraTela / 2;
+    // Cria a nova janela com essas dimensões e posição
+    novaJanela = window.open('', '',
+        `width=${largura},height=${alturaDaJanela},left=${posicaoEsquerda},top=0`
+    );
     // escreve o conteúdo na janela
     novaJanela.document.writeln(conteudo);
     // cria um estilo de filtragem (sem saturação) pro corpo do print
-    var filtro = "<style> body{ filter: saturate(0); }</style>";
+    var filtro = "<html><head><title>Six Dev | Impressão</title><style> body{ filter: saturate(0); }</style></head></html>";
     novaJanela.document.writeln(filtro);
     // imprime
     novaJanela.print();
     // fecha (pra não ficar imprimindo repetidamente na mesma impressão)
     novaJanela.close();
+    window.close();
 }

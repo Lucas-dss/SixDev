@@ -23,13 +23,13 @@
                 <a href="../index.html">
                     <li>Início</li>
                 </a>
-                <a href="cadastro_cli.php">
+                <a href="cliente/cadastro_cli.php">
                     <li>Cliente</li>
                 </a>
-                <a href="cadastro_for.php">
+                <a href="fornecedor/cadastro_for.php">
                     <li>Fornecedor</li>
                 </a>
-                <a href="cadastro_ven.php">
+                <a href="vendedor/cadastro_ven.php">
                     <li>Vendedor</li>
                 </a>
                 <a href="venda.php">
@@ -52,13 +52,13 @@
                 <a href="../index.html">
                     <li>Início</li>
                 </a>
-                <a href="cadastro_cli.php">
+                <a href="cliente/cadastro_cli.php">
                     <li>Cliente</li>
                 </a>
-                <a href="cadastro_for.php">
+                <a href="fornecedor/cadastro_for.php">
                     <li>Fornecedor</li>
                 </a>
-                <a href="cadastro_ven.php">
+                <a href="vendedor/cadastro_ven.php">
                     <li>Vendedor</li>
                 </a>
                 <a href="venda.php">
@@ -95,38 +95,41 @@
             </section>
             <?php
             include "mysqlconecta.php";
-            $sql_venda = "SELECT id_venda, id_cliente, id_vendedor, quantidade, prod_venda FROM venda";
-            $result_venda = mysqli_query($conexao, $sql_venda);
+            if (isset($_GET["id"])) {
+                $id_ven = $_GET['id'];
+                $sql_venda = "SELECT id_venda, id_cliente, id_vendedor, quantidade, prod_venda FROM venda WHERE id_venda like'%$id_ven%' ";
+                $result_venda = mysqli_query($conexao, $sql_venda);
 
-            while ($row_venda = mysqli_fetch_array($result_venda)) {
-                $id = $row_venda[0];
-                $cli = $row_venda[1];
-                $vendedor = $row_venda[2];
-                $quant = $row_venda[3];
-                $prod = $row_venda[4];
+                while ($row_venda = mysqli_fetch_array($result_venda)) {
+
+                    $cli = $row_venda[1];
+                    $vendedor = $row_venda[2];
+                    $quant = $row_venda[3];
+                    $prod = $row_venda[4];
+                }
+
+                $sql_cli = "SELECT * FROM cliente WHERE id_cliente like '%$cli%'";
+                $sql_vendedor = "SELECT * FROM vendedor WHERE id_vendedor like'%$vendedor%'";
+                $sql_prod = "SELECT * FROM produto WHERE id_produto like '%$prod%'";
+                $result_cli = mysqli_query($conexao, $sql_cli);
+                $result_vendedor = mysqli_query($conexao, $sql_vendedor);
+                $result_prod = mysqli_query($conexao, $sql_prod);
+
+                while ($row_cli = mysqli_fetch_array($result_cli)) {
+
+                    $nome_cli = $row_cli[1];
+                }
+
+                while ($row_vende = mysqli_fetch_array($result_vendedor)) {
+                    $nome_vende = $row_vende[1];
+                }
+
+                while ($row_prod = mysqli_fetch_array($result_prod)) {
+                    $nome_prod = $row_prod[2];
+                    $preco_uni = $row_prod[6];
+                }
+                $preco_total = $preco_uni * $quant;
             }
-
-            $sql_cli = "SELECT * FROM cliente WHERE id_cliente like '%$cli%'";
-            $sql_vendedor = "SELECT * FROM vendedor WHERE id_vendedor like'%$vendedor%'";
-            $sql_prod = "SELECT * FROM produto WHERE id_produto like '%$prod%'";
-            $result_cli = mysqli_query($conexao, $sql_cli);
-            $result_vendedor = mysqli_query($conexao, $sql_vendedor);
-            $result_prod = mysqli_query($conexao, $sql_prod);
-
-            while ($row_cli = mysqli_fetch_array($result_cli)) {
-
-                $nome_cli = $row_cli[1];
-            }
-
-            while ($row_vende = mysqli_fetch_array($result_vendedor)) {
-                $nome_vende = $row_vende[1];
-            }
-
-            while ($row_prod = mysqli_fetch_array($result_prod)) {
-                $nome_prod = $row_prod[2];
-                $preco_uni = $row_prod[6];
-            }
-            $preco_total = $preco_uni * $quant;
 
             echo ("<hr>");
             echo ("<div class='container-tabela'><table><thead>");
@@ -152,17 +155,19 @@
                 * {
                     margin: 0;
                     padding: 0;
+                    font-family: Arial, Helvetica, sans-serif;
                 }
 
                 #idParaImprimir {
                     width: 47.5%;
                     min-width: 200px;
                     margin: 180px 0;
-                    padding: 10px 10px;
+                    padding: 5px 5px;
                     display: flex;
                     flex-direction: column;
                     justify-content: flex-end;
                     border: 2px solid black;
+                    font-weight: bold;
                 }
 
                 section {
@@ -185,18 +190,20 @@
 
                 .container-img img {
                     width: 150px;
-                    height: 100px;
+                    height: 150px;
                 }
 
                 .container-p {
                     width: 80%;
+                    height: 100%;
                     padding: 0 20px;
                     display: flex;
                     flex-direction: column;
-                    font-size: 8px;
+                    font-size: 10px;
                     text-align: justify;
                     flex: 1 1 300px;
                     /* Ocupa o resto do espaço e quebra se necessário */
+                    font-weight: bold;
                 }
 
                 .container-section-column {
@@ -207,7 +214,7 @@
                 }
 
                 .container-section-column h1 {
-                    font-size: 30px;
+                    font-size: 24px;
                     margin: 10px;
                     text-align: center;
                 }
@@ -250,7 +257,8 @@
                     height: 36px;
                     max-width: 25px;
                     padding-top: 5px;
-                    overflow-wrap: break-word; 
+                    overflow-wrap: break-word;
+                    font-weight: bold;
                 }
 
                 /* o primeiro input (id) */

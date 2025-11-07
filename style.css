@@ -92,7 +92,7 @@ html {
 body {
     background-color: #b6b6b6;
     min-width: 270px;
-    transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 /* #region ondas do background */
@@ -259,6 +259,7 @@ header nav .modo:hover {
 .dark-mode {
     background-color: #101820;
     color: #fff;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .dark-emoji {

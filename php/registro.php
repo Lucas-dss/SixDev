@@ -32,13 +32,13 @@
                 <a href="../index.html">
                     <li>Início</li>
                 </a>
-                <a href="cadastro_cli.php">
+                <a href="cliente/cadastro_cli.php">
                     <li>Cliente</li>
                 </a>
-                <a href="cadastro_for.php">
+                <a href="fornecedor/cadastro_for.php">
                     <li>Fornecedor</li>
                 </a>
-                <a href="cadastro_ven.php">
+                <a href="vendedor/cadastro_ven.php">
                     <li>Vendedor</li>
                 </a>
                 <a href="venda.php">
@@ -61,13 +61,13 @@
                 <a href="../index.html">
                     <li>Início</li>
                 </a>
-                <a href="cadastro_cli.php">
+                <a href="cliente/cadastro_cli.php">
                     <li>Cliente</li>
                 </a>
-                <a href="cadastro_for.php">
+                <a href="fornecedor/cadastro_for.php">
                     <li>Fornecedor</li>
                 </a>
-                <a href="cadastro_ven.php">
+                <a href="vendedor/cadastro_ven.php">
                     <li>Vendedor</li>
                 </a>
                 <a href="venda.php">
