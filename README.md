@@ -1,3 +1,11 @@
+<h1>Como utilizar todo o sistema:</h1>
+<h2>1. É necessário ter programas como:</h2>
+<ul>
+  <li>WampServer</li>
+</ul>
+<h2>2. Coloque a pasta deste repositório na pasta 'www' dentro da pasta 'wamp64', no qual você tenha configurado o programa dentro de seu sistema.</h2>
+<h2>3. Inicialize o WampServer.</h2>
+<h2>4. Insira na URL: 'http://localhost/SixDev'</h2>
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&letterSpacing=-1px&pause=1000&color=F7F7F7&background=FF0000&center=true&vCenter=true&width=1035&lines=-+Problema%3A+'%F0%9F%9B%91+Site+Perigoso'" alt="Typing SVG" /></a>
 <br></br>
 <p align="center">Se você tiver com esse problema, faça o seguinte:</p>
